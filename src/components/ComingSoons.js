@@ -70,7 +70,7 @@ const ComingSoons = ({ selectedSnifs }) => {
         <div className="coming-soon-carousel">
           <div className="coming-soon-carousel-inner">
             {movies.map((movie, index) => {
-              const { release_date, english_title, poster, imdb_id } = movie;
+              const { release_date, english_title, en_poster, imdb_id } = movie;
 
               return (
                 <div key={index} className="coming-soon-card">
@@ -80,7 +80,7 @@ const ComingSoons = ({ selectedSnifs }) => {
                     rel="noopener noreferrer"
                   >
                     <img
-                      src={poster || defaultPoster}
+                      src={en_poster || defaultPoster}
                       alt={english_title}
                       className="coming-soon-poster"
                       onError={(e) => {
