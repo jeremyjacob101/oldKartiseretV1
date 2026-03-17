@@ -4,6 +4,9 @@ import "../componentsCSS/MovieCarousel.css";
 import MoviesSection from "./MoviesSection";
 import CarouselControls from "./CarouselControls";
 
+const THEATERS_CLOSED_NOTICE =
+  "Due to the security situation, theaters in Israel are closed and therefore we have no showtimes to display. Looking forward to quieter days full of film.";
+
 const getFormattedDate = (dayOffset) => {
   const today = new Date();
   today.setDate(today.getDate() + dayOffset);
@@ -139,6 +142,19 @@ const MovieCarousel = ({ selectedSnifs, setSelectedSnifs, setDayOffset }) => {
   const handleNextDay = () => setDayOffsetLocal((prev) => prev + 1);
   const handlePrevDay = () =>
     setDayOffsetLocal((prev) => (prev > 0 ? prev - 1 : 0));
+
+  const shouldShowClosureNotice = true;
+
+  if (shouldShowClosureNotice) {
+    return (
+      <div className="main-carousel closure-notice-wrapper">
+        <div className="closure-notice-card">
+          <div className="closure-notice-title">Notice</div>
+          <p>{THEATERS_CLOSED_NOTICE}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="main-carousel">
