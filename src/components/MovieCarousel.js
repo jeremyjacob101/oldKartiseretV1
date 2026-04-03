@@ -93,7 +93,7 @@ const MovieCarousel = ({ selectedSnifs, setSelectedSnifs, setDayOffset }) => {
       moviesData.forEach((movie) => {
         validMovieTitles.add(movie.english_title);
         movieInfoMap[movie.english_title] = {
-          poster: movie.poster,
+          poster: movie.en_poster || movie.poster || "",
           runtime: movie.runtime,
           popularity: movie.popularity,
           imdbRating: movie.imdbRating,
